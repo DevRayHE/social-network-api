@@ -6,7 +6,7 @@ const routes = require('./routes');
 // const cwd = process.cwd();
 
 // PORT all in uppercase for Heroku deployment
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3003;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));

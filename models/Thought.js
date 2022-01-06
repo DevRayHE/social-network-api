@@ -1,5 +1,29 @@
 const { Schema, model } = require('mongoose');
 
+// The reactionSchema defines the shape for the reactions subdocument
+const reactionSchema = new Schema(
+  {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    reactionBody: {
+      type: String,
+      required: true,
+      max_length: 280,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+      //TODO: Use a getter method to format the timestamp on query 
+    }
+  }
+);
+
 // Schmea to create Thought model
 const thoughtSchema = new Schema(
   {
@@ -25,30 +49,6 @@ const thoughtSchema = new Schema(
 thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
-
-// The reactionSchema defines the shape for the reactions subdocument
-const reactionSchema = new Schema(
-  {
-    reactionId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
-    reactionBody: {
-      type: String,
-      required: true,
-      max_length: 280,
-    },
-    username: {
-      type: String,
-      required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now(),
-      //TODO: Use a getter method to format the timestamp on query 
-    }
-  }
-);
 
 const Thought = model('thought', thoughtSchema);
 
