@@ -74,9 +74,9 @@ module.exports = {
 
   // Remove a friend from a user's friend list
   deleteReaction(req, res) {
-    Thought.findOneAndDelete(
+    Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { reactions: req.body.reactionsId } },
+      { $pull: { reactions: { reactionId: req.params.reactionsId } } },
       { runValidators: true, new: true }
     )
       .then((thought) => 

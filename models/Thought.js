@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 // The reactionSchema defines the shape for the reactions subdocument
 const reactionSchema = new Schema(

@@ -47,7 +47,9 @@
 
 ### Here is a video to demonstrate 
 
-![Usage sample video.](NA)
+[Demo video 1 - To start the server.](https://drive.google.com/file/d/1YVyKIcCOuSQ7O4NhJdxP_jib1M1SSfV0/view?usp=sharing)
+
+[Demo video 1 - GET, POST, PUT and Delete.](https://drive.google.com/file/d/1WKKwj-6jUjeM69YazX6tuTn6zI1r4tKV/view?usp=sharing)
 
  --- 
 
@@ -59,13 +61,8 @@
 Start up your favourite terminal.
 Navigate to the repository local folder.
 Run 'npm i' to install dependencies
-Run 'mysql -u "username" -p'
-Input your mysql password associated to the "username"
-Run 'source ./db/schema.sql'
-Run 'quit" to get back to Terminal
-Run 'npm seed' to seed the database
 Run 'npm start'
-A professional e-commerce back end is now ready on the chosen PORT!
+A Social Network Api App is now ready on the chosen PORT!
 
  --- 
 
