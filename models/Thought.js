@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
+const formatDate = require('../utils/formatDate');
 
 // The reactionSchema defines the shape for the reactions subdocument
 const reactionSchema = new Schema(
@@ -19,9 +20,16 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      //TODO: Use a getter method to format the timestamp on query 
+      //getter method to format the timestamp on query 
+      get: (createdAtVal) => formatDate.formatDate(createdAtVal),
     }
-  }
+  },
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    }
+  },
 );
 
 // Schmea to create Thought model
@@ -35,14 +43,21 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      //TODO: Use a getter method to format the timestamp on query 
+      //getter method to format the timestamp on query 
+      get: (createdAtVal) => formatDate.formatDate(createdAtVal),
     },
     username: {
       type: String,
       required: true,
     },
     reactions: [ reactionSchema ],
-  }
+  },
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    }
+  },
 );
 
 // Create a virtual property 'reactionCount' that gets the amount of Thought's reactions
